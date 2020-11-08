@@ -8,12 +8,18 @@ import java.util.ArrayList;
 public class GestorIdiomas implements IGestorIdiomas{
 
     private ArrayList<Idioma> IDIOMAS= new ArrayList<>();
-    private static GestorIdiomas auxiliar;
+    public static final String IDIOMA_CORRECTO="Se pudo crear el Idioma";
+    public static final String IDIOMA_NOMBRE_INCORRECTO="No se pdo crear el Idioma";
+    public static final String IDIOMA_REPETIDO="No se pudo crear el Idioma porque ya existe";
+    private static GestorIdiomas Iauxiliar;
+
+    private GestorIdiomas() {
+    }
     
     public static GestorIdiomas crear(){
-        if(auxiliar == null)
-            auxiliar= new GestorIdiomas();
-            return auxiliar;
+        if(Iauxiliar == null)
+            Iauxiliar= new GestorIdiomas();
+            return Iauxiliar;
        }
     
     @Override
@@ -23,32 +29,35 @@ public class GestorIdiomas implements IGestorIdiomas{
             
             if(!this.IDIOMAS.contains(IDIOMA)){
                 this.IDIOMAS.add(IDIOMA);
-                return Idioma_Correcto;
+                return IDIOMA_CORRECTO;
             }
              else{
-                 return Idioma_Repetido;
+                 return IDIOMA_REPETIDO;
             }   
         }else
-             return Idioma_Incorrecto;
+             return IDIOMA_NOMBRE_INCORRECTO;
+    }
+
+   
+
+ 
+
+    @Override
+    public Idioma verIdioma(String nombre) {
+     Idioma ivalor=null;
+     for(int i=0;i<IDIOMAS.size();i++){
+         if(IDIOMAS.get(i).verNombre()==nombre)
+         {
+             ivalor=IDIOMAS.get(i);
+         }
+         
+     }
+     return ivalor;
     }
 
     @Override
     public ArrayList<Idioma> verIdiomas() {
-        for(Idioma i: this.IDIOMAS){
-          i.mostraridioma();
-      }
-        return null;
-    }
-
-    @Override
-    public Idioma verIdioma(String nombre) {
-        if(IDIOMAS.contains(nombre)){
-          System.out.println("si existe "+nombre);
-      }
-      else
-          
-          return null;
-          return null;
+        return IDIOMAS;
     }
     
      

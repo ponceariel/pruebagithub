@@ -22,6 +22,11 @@ public class Idioma {
         return nombre;
     }
 
+    @Override
+    public String toString() {
+        return "Idioma{" + "nombre=" + nombre + '}';
+    }
+
     public void asignarNombre(String nombre) {
         this.nombre = nombre;
     }

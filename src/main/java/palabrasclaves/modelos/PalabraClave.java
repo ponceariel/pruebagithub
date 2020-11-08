@@ -30,6 +30,11 @@ private String nombre;
     public void mostrarpalabraclave(){
         System.out.println(nombre);
     }
+
+    @Override
+    public String toString() {
+        return "PalabraClave{" + "nombre=" + nombre + '}';
+    }
     
     //aqui voy a definir los metodos equals y hashcode para la clase palabras claves
 

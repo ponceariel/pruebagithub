@@ -32,6 +32,11 @@ public class Tipo {
     {
         System.out.println(nombre);
     }
+
+    @Override
+    public String toString() {
+        return "Tipos{" + "nombre=" + nombre + '}';
+    }
     
     
     

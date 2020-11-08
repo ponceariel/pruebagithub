@@ -3,17 +3,22 @@ package grupos.modelos;
 
 import interfases.IGestorGrupos;
 import java.util.ArrayList;
+import java.util.Objects;
 
 
 public class GestorGrupos implements IGestorGrupos {
 
     private ArrayList<Grupo> GRUPOS= new ArrayList<>();
-    private static GestorGrupos auxiliar;
+    public static final String GRUPO_CORRECTO="Se pudo crear el Grupo";
+    public static final String GRUPO_NOMBRE_INCORRECTO="No se pdo crear el Grupo";
+    public static final String GRUPO_REPETIDO="No se pudo crear el Grupo porque ya existe";
+    public static final String DESCRIPCION_CAMBIO="Se ha producido un cambio en la descripcion de uno los grupos";
+    private static GestorGrupos gauxiliar;
     
     public static GestorGrupos crear(){
-        if(auxiliar == null)
-            auxiliar= new GestorGrupos();
-            return auxiliar;
+        if(gauxiliar == null)
+            gauxiliar= new GestorGrupos();
+            return gauxiliar;
         }
     @Override
     public String nuevoGrupo(String nombre, String descripcion) {
@@ -22,46 +27,77 @@ public class GestorGrupos implements IGestorGrupos {
             
             if(!this.GRUPOS.contains(GRUPO)){
                 this.GRUPOS.add(GRUPO);
-                return Grupo_Correcto;
+                return GRUPO_CORRECTO;
             }
              else{
-                 return Grupo_Repetido;
+                 return GRUPO_NOMBRE_INCORRECTO;
             }   
         }else
-             return Grupo_Incorrecto;
+             return GRUPO_REPETIDO;
     }
 
     @Override
     public String modificarGrupo(Grupo grupo, String descripcion) {
         grupo.asignarDescripcion(descripcion);
-        return Descripcion_Cambio;
-    }
-
-    @Override
-    public ArrayList<Grupo> verGrupos() {
-        for(Grupo g: this.GRUPOS){
-          g.mostrarG();
-      }
-        return null;
+        return DESCRIPCION_CAMBIO;
     }
 
     @Override
     public Grupo verGrupo(String nombre) {
-       if(GRUPOS.contains(nombre)){
-          System.out.println("si existe "+nombre);
-      }
-      else
-          
-          return null;
-          return null; 
+    Grupo gvalor=null;    
+        for(int i=0;i<GRUPOS.size();i++)
+        {
+            if(GRUPOS.get(i).verNombre()==nombre)
+            {
+                gvalor=GRUPOS.get(i);
+            }
+        }
+        return gvalor;
     }
 
     @Override
     public boolean existeEsteGrupo(Grupo grupo) {
-        if(grupo!=null)
+//        if(grupo!=null)
+//            return true;
+//        else
+//            return false;
+     boolean b=false;
+     for(int i=0;i<GRUPOS.size();i++){
+         if(GRUPOS.get(i).equals(grupo)){
+             b=true;
+         }
+     }
+     return b;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 37 * hash + Objects.hashCode(this.GRUPOS);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
             return true;
-        else
+        }
+        if (obj == null) {
             return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final GestorGrupos other = (GestorGrupos) obj;
+        if (!Objects.equals(this.GRUPOS, other.GRUPOS)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public ArrayList<Grupo> verGrupos() {
+       return GRUPOS;
     }
     
     

@@ -37,6 +37,11 @@ public class Grupo {
         return descripcion;
     }
 
+    @Override
+    public String toString() {
+        return "Grupo{" + "nombre=" + nombre + '}';
+    }
+
     public void asignarDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }

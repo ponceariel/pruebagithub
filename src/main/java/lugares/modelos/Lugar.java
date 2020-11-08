@@ -22,6 +22,11 @@ public class Lugar {
         return nombre;
     }
 
+    @Override
+    public String toString() {
+        return "Lugar{" + "nombre=" + nombre + '}';
+    }
+
     public void asignarNombre(String nombre) {
         this.nombre = nombre;
     }

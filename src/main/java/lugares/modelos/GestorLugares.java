@@ -3,17 +3,24 @@ package lugares.modelos;
 
 import interfases.IGestorLugares;
 import java.util.ArrayList;
+import palabrasclaves.modelos.GestorPalabrasClaves;
 
 
 public class GestorLugares implements IGestorLugares{
 
     private ArrayList<Lugar> LUGARES= new ArrayList<>();
-    private static GestorLugares auxiliar;
+    public static final String LUGAR_CORRECTO="Se pudo crear el lugar";
+    public static final String LUGAR_INCORRECTO="No se pdo crear el lugar";
+    public static final String LUGAR_REPETIDO="No se pudo crear el lugar porque ya existe";
+    private static GestorLugares lauxiliar;
+
+    private GestorLugares() {
+    }
     
     public static GestorLugares crear(){
-        if(auxiliar == null)
-            auxiliar= new GestorLugares();
-            return auxiliar;
+        if(lauxiliar == null)
+            lauxiliar= new GestorLugares();
+            return lauxiliar;
     }
     
     @Override
@@ -24,33 +31,31 @@ public class GestorLugares implements IGestorLugares{
             
             if(!this.LUGARES.contains(LUGAR)){
                 this.LUGARES.add(LUGAR);
-                return Lugar_Correcto;
+                return LUGAR_CORRECTO;
             }
              else{
-                 return Lugar_Repetido;
+                 return LUGAR_REPETIDO;
             }   
         }else
-             return Lugar_Incorrecto;  
-    }
-
-    @Override
-    public ArrayList<Lugar> verLugares() {
-        for(Lugar L: this.LUGARES){
-          L.mostrarlugar();
-      }
-        return null;
-        
+             return LUGAR_INCORRECTO;  
     }
 
     @Override
     public Lugar verLugar(String nombre) {
-        if(LUGARES.contains(nombre)){
-          System.out.println("si existe "+nombre);
-      }
-      else
-          
-          return null;
-          return null;
+    Lugar Lvalor=null;
+    for(int i=0;i<LUGARES.size();i++){
+        if(LUGARES.get(i).verNombre()==nombre)
+        {
+            Lvalor=LUGARES.get(i);
+        }
+    }
+    return Lvalor;
+    }
+        
+
+    @Override
+    public ArrayList<Lugar> verLugares() {
+        return LUGARES;
     }
     
     

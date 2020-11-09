@@ -36,12 +36,23 @@ public class GestorGrupos implements IGestorGrupos {
              return GRUPO_REPETIDO;
     }
 
+    public void setGRUPOS(ArrayList<Grupo> GRUPOS) {
+        this.GRUPOS = GRUPOS;
+    }
+    
+    
     @Override
     public String modificarGrupo(Grupo grupo, String descripcion) {
-        grupo.asignarDescripcion(descripcion);
-        return DESCRIPCION_CAMBIO;
-    }
-
+       for(int j=0;j<GRUPOS.size(); j++)
+       { 
+         if(GRUPOS.get(j).verNombre()==grupo.verNombre())
+         {
+           GRUPOS.get(j).asignarDescripcion(descripcion);
+           return DESCRIPCION_CAMBIO;
+         }
+       }
+        return null;
+   }
     @Override
     public Grupo verGrupo(String nombre) {
     Grupo gvalor=null;    

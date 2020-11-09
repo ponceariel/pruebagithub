@@ -113,6 +113,7 @@ public class Principal {
         //prueba para el metodo verTipo(String nombre)
         System.out.println(gg1.verGrupo("grupo4"));
         System.out.println(gg1.verGrupo("grupo2"));
-        
+        //Se verifica los cambios 
+        System.out.println(gg1.verGrupos());
     }
 }

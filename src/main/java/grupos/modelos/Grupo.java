@@ -39,7 +39,7 @@ public class Grupo {
 
     @Override
     public String toString() {
-        return "Grupo{" + "nombre=" + nombre + '}';
+        return "Grupo{" + "nombre=" + nombre + '}'+"descripcion: "+descripcion;
     }
 
     public void asignarDescripcion(String descripcion) {

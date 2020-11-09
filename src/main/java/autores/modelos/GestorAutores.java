@@ -41,10 +41,19 @@ public class GestorAutores implements IGestorAutores {
         }else
              return Autor_Incorrecto;
     }
-
-    @Override
-    public String nuevoAutor(int dni, String apellidos, String nombres, String cx, String clave, String claveRepetida) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String nuevoAutor(int dni, String apellidos, String nombres,int cx, String clave, String claveRepetida) {
+       if((dni!=0)&&(apellidos!=null)&&(!apellidos.isBlank())&&(nombres!=null)&&(!nombres.isBlank())&&(cx!=0)&&(claveRepetida!=null)&&(!claveRepetida.isBlank())){
+            Autor alumno=new Alumno(dni,apellidos,nombres,clave,cx);
+            
+            if(!this.AUTOR.contains(alumno)){
+                this.AUTOR.add(alumno);
+                return Autor_Correcto;
+            }
+             else{
+                 return Autor_Repetido;
+            }   
+        }else
+             return Autor_Incorrecto;
     }
 
     @Override
@@ -79,6 +88,11 @@ public class GestorAutores implements IGestorAutores {
 
     @Override
     public Autor verAutor(int dni) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String nuevoAutor(int dni, String apellidos, String nombres, String cx, String clave, String claveRepetida) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

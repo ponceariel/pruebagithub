@@ -12,10 +12,12 @@ import autores.modelos.Profesor;
 import grupos.modelos.Grupo;
 import grupos.modelos.MiembroEnGrupo;
 import autores.modelos.Rol;
+import grupos.modelos.GestorGrupos;
 import idiomas.modelos.Idioma;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
+import javax.lang.model.util.ElementFilter;
 import lugares.modelos.Lugar;
 import palabrasclaves.modelos.PalabraClave;
 import publicaciones.modelos.Publicacion;
@@ -33,8 +35,16 @@ public class ControladorPrincipal {
         
          GestorTipos g1= GestorTipos.crear() ;
      System.out.println(g1.nuevoTipo("tipo principal"));
-     g1.verTipos();
+     System.out.println(g1.verTipos());
      
+     GestorGrupos gr1= GestorGrupos.crear();
+     Grupo grup1= new Grupo("grupo4", "matematicas");
+     System.out.println(gr1.nuevoGrupo("grupo2","fisica"));
+     System.out.println(gr1.nuevoGrupo("grupo2","fisica experimental"));
+     System.out.println(gr1.nuevoGrupo("grupo4","matematicas"));
+     System.out.println(gr1.modificarGrupo(grup1,"algebra"));
+     System.out.println(gr1.verGrupos()); 
+     grup1.mostrarG();
         
 //  //<editor-fold defaultstate="collapsed" desc="Sin intefaz gráfica"> 
 //        ArrayList<Grupo> grupos = new ArrayList<>();

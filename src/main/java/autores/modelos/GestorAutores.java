@@ -58,9 +58,20 @@ public class GestorAutores implements IGestorAutores {
 
     @Override
     public String modificarAutor(Autor autor, String apellidos, String nombres, Cargo cargo, String clave, String claveRepetida) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+       if((apellidos!=null)&&(!apellidos.isBlank())&&(nombres!=null)&&(!nombres.isBlank())&&(cargo!=null)&&(claveRepetida!=null)&&(!claveRepetida.isBlank())){
+            for(int j=0;j<AUTOR.size(); j++)
+       {
+            if(this.AUTOR.contains(autor)){
+                this.AUTOR.get(j).setApellidos(apellidos);
+                this.AUTOR.get(j).setNombres(nombres);
+                this.AUTOR.get(j).setClave(clave);
+                this.AUTOR.get(j).setClave(claveRepetida);
+                
+            } 
+       }
+     }
+       return Autor_Correcto;
+   }
     @Override
     public String modificarAutor(Autor autor, String apellidos, String nombres, String cx, String clave, String claveRepetida) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

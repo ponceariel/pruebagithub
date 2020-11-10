@@ -97,6 +97,11 @@ public void QuitarGrupo(Grupo grupo){
         this.Clave = Clave;
     }
 
+    @Override
+    public String toString() {
+        return "Autor{" + "DNI=" + DNI + ", apellidos=" + apellidos + ", nombres=" + nombres + ", Clave=" + Clave + '}';
+    }
+
     
 
     @Override

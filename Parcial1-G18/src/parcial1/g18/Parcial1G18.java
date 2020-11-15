@@ -5,6 +5,10 @@
  */
 package parcial1.g18;
 
+import Interfaces.IControladorPrincipal;
+import principal.controladores.ControladorPrincipal;
+import principal.vistas.VentanaPrincipal;
+
 /**
  *
  * @author usuario
@@ -15,7 +19,12 @@ public class Parcial1G18 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        IControladorPrincipal c=new ControladorPrincipal();
+        VentanaPrincipal ventana=new VentanaPrincipal(c);
+        ventana.setVisible(true);//se hace visible la ventana
+        ventana.setLocationRelativeTo(null); //se centra la ventana
+         
     }
     
 }

@@ -1,9 +1,7 @@
 
 package autores.modelos;
 
-import grupos.modelos.Grupo;
-import grupos.modelos.MiembroEnGrupo;
-import grupos.modelos.Rol;
+
 import java.util.ArrayList;
 
 public abstract class Autor {
@@ -12,7 +10,7 @@ public abstract class Autor {
     private String apellidos;
     private String nombres;
     private String Clave;
-    private ArrayList<MiembroEnGrupo> grupos= new ArrayList<>();
+   
     
     public  Autor(int DNI, String apellidos, String nombres, String Clave) {
         this.DNI = DNI;
@@ -25,42 +23,6 @@ public abstract class Autor {
     {
       System.out.println("["+""+DNI+"]"+""+apellidos+","+""+nombres);
     }
-    
-    public ArrayList<MiembroEnGrupo> verGrupos(){
-           return grupos;
-       }
-
-    public void agregarGrupo(Grupo grupo,Rol rol){
-       
-     MiembroEnGrupo MiembroAutor= new MiembroEnGrupo(this,grupo,rol); 
-     
-     if(!this.grupos.contains(MiembroAutor))
-         this.grupos.add(MiembroAutor);
-//     if(!grupo.verMiembros().contains(MiembroAutor))
-//         grupo.agregarMiembro(this,rol);
-    }
-    
-public void QuitarGrupo(Grupo grupo){
-        
-         MiembroEnGrupo unMiembro= new MiembroEnGrupo(this,grupo,null);
-         
-         if(!this.grupos.contains(unMiembro))
-             grupo.quitarMiembro(this);
-      
-    }
-
-  public boolean esSuperAdministrador(){
-      
-    boolean i=false;
-     
-   for(MiembroEnGrupo miemb: grupos){ 
-    
-       if(miemb.getGrupos().verNombre().equalsIgnoreCase("Super Administradores"))
-            i=true; 
-     }
-       return i;
-    }
-       
   
     public int getDNI() {
         return DNI;

@@ -1,11 +1,11 @@
 
 package autores.modelos;
 
+import Interfaces.IGestorAutores;
 import autores.modelos.Alumno;
 import autores.modelos.Autor;
 import autores.modelos.Cargo;
 import autores.modelos.Profesor;
-import interfases.IGestorAutores;
 import java.util.ArrayList;
  
 

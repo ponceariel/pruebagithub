@@ -23,6 +23,9 @@ public class ModeloTablaAlumnos {
         nombreColumnas.add("Nombres");
         nombreColumnas.add("Cx");
         
+        GestorAutores ge= GestorAutores.crear();
+        this.nombreFilas=ge.verAlumnos();
+        
     }
 
 
@@ -50,4 +53,10 @@ public class ModeloTablaAlumnos {
          return this.nombreColumnas.get(columna);
         }
     
+    public void actualizar(){
+        GestorAutores ge= GestorAutores.crear();
+        this.nombreFilas=ge.verAlumnos();
+        this.fireTableDataChanged();
+        
+    }
 }

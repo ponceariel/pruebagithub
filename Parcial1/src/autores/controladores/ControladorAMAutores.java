@@ -31,7 +31,9 @@ public class ControladorAMAutores implements IControladorAutores{
         ventana.setLocationRelativeTo(null);
         ventana.getTablaProfesores();
         ventana.getTablaAlumnos();
-
+        ModeloTablaAlumnos mta=(ModeloTablaAlumnos)this.ventana.getTablaAlumnos().getModel();
+        mta.actualizar();
+        
     }
 
 

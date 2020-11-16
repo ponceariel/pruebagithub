@@ -5,7 +5,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import autores.modelos.GestorAutores;
 import Interfaces.IControladorAMAlumno;
+import Interfaces.IControladorAutores;
+import autores.modelos.ModeloTablaAlumnos;
 import autores.vistas.VentanaAMAlumno;
+import autores.vistas.VentanaAutores;
 
 
 
@@ -18,6 +21,7 @@ public class ControladorAMAlumno implements IControladorAMAlumno{
         this.ventanaA.setLocationRelativeTo(null);
         this.ventanaA.setVisible(true);
     }
+    
     @Override
     public void btnGuardarClic(ActionEvent evt){
         int dni=Integer.parseInt(this.ventanaA.getTxt_Documento().getText());
@@ -28,6 +32,7 @@ public class ControladorAMAlumno implements IControladorAMAlumno{
         String cx=this.ventanaA.getTxt_CX().getText();
         GestorAutores ga= GestorAutores.crear();
         ga.nuevoAutor(dni, apellido, nombre, cx, clave, claveRepetida);
+        IControladorAutores ca=new ControladorAMAutores();
     }
 
     @Override

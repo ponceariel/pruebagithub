@@ -45,8 +45,8 @@ public class ControladorAMProfesor implements IControladorAMProfesor{
         Cargo cargo=((ModeloComboCargo)this.ventanaP.getComboBox_Cargo().getModel()).obtenerCargo();
         GestorAutores gp= GestorAutores.crear();
         gp.nuevoAutor(dni, apellido, nombre, cargo, clave, claveRepetida);
-        ModeloTablaProfesores modeloT_Profesor= (ModeloTablaProfesores)this.ventana.getTablaProfesores().getModel();
-        modeloT_Profesor.actualizar();
+//        ModeloTablaProfesores modeloT_Profesor= (ModeloTablaProfesores)this.ventana.getTablaProfesores().getModel();
+//        modeloT_Profesor.actualizar();
       
     }
 

@@ -19,6 +19,8 @@ public class GestorAutores implements IGestorAutores {
      public static final String Autor_existente="Si existe este autor"; 
     
     private ArrayList<Autor> AUTORES= new ArrayList<>();
+    private ArrayList<Profesor> PROFESORES= new ArrayList<>();
+    private ArrayList<Alumno> ALUMNOS= new ArrayList<>();
     private static GestorAutores auxiliar;
        private GestorAutores(){
         //aqui estoy definiendo un constructor predeterminado de gestortipo
@@ -37,6 +39,7 @@ public class GestorAutores implements IGestorAutores {
             
             if(!this.AUTORES.contains(profe)){
                 this.AUTORES.add(profe);
+                this.PROFESORES.add((Profesor) profe);
                 return Autor_Correcto;
             }
              else{
@@ -48,11 +51,12 @@ public class GestorAutores implements IGestorAutores {
 
     @Override
     public String nuevoAutor(int dni, String apellidos, String nombres, String cx, String clave, String claveRepetida) {
-      if(((dni!=0)&&(apellidos!=null)&&(!apellidos.isBlank())&&(nombres!=null)&&(!nombres.isBlank())&&(cx!=null)&&(claveRepetida!=null)&&(!claveRepetida.isBlank()))){
+      if(((dni!=0)&&(apellidos!=null)&&(!apellidos.isBlank())&&(nombres!=null)&&(!nombres.isBlank())&&(clave!=null)&&(!clave.isBlank())&&(cx!=null)&&(claveRepetida!=null)&&(!claveRepetida.isBlank()))&&(clave==claveRepetida)){
            Autor alumno=new Alumno(dni,apellidos,nombres,cx,clave);
           if (!this.AUTORES.contains(alumno)){
-          this.AUTORES.add(alumno);
-          return Autor_Correcto;  
+              this.AUTORES.add(alumno);
+              this.ALUMNOS.add((Alumno) alumno);
+              return Autor_Correcto;  
        }
         else
               return Autor_Repetido;
@@ -97,12 +101,12 @@ public class GestorAutores implements IGestorAutores {
 
     @Override
     public ArrayList<Profesor> verProfesores() { ///////////// REVISAR ESTE METODO POR SI SE LO NECESITA
-        return null;
+        return PROFESORES;
     }
 
     @Override
     public ArrayList<Alumno> verAlumnos() {     ///////////////// REVISAR ESTE METODO POR SI SE LO NECESITA 
-       return null;
+       return ALUMNOS;
     }
 
     @Override

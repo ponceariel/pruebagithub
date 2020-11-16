@@ -15,8 +15,8 @@ import autores.vistas.VentanaAutores;
 public class ControladorAMAlumno implements IControladorAMAlumno{
 
     private VentanaAMAlumno ventanaA;
-            
-    public ControladorAMAlumno() {
+    private VentanaAutores ventana;       
+    public ControladorAMAlumno() { 
         this.ventanaA = new VentanaAMAlumno(this,null,true);
         this.ventanaA.setLocationRelativeTo(null);
         this.ventanaA.setVisible(true);
@@ -32,7 +32,8 @@ public class ControladorAMAlumno implements IControladorAMAlumno{
         String cx=this.ventanaA.getTxt_CX().getText();
         GestorAutores ga= GestorAutores.crear();
         ga.nuevoAutor(dni, apellido, nombre, cx, clave, claveRepetida);
-        IControladorAutores ca=new ControladorAMAutores();
+       
+       
     }
 
     @Override

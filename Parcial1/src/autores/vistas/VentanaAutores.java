@@ -20,6 +20,7 @@ import javax.swing.table.TableModel;
 public class VentanaAutores extends javax.swing.JDialog {
 
     IControladorAutores ca;
+    private VentanaAutores ventana; 
             
     public VentanaAutores(IControladorAutores control,java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -347,7 +348,9 @@ public class VentanaAutores extends javax.swing.JDialog {
 
     private void btnNuevoAlumno(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoAlumno
              this.dispose();
-             ca.btnNuevoAlumnoClic(evt);
+             this.ca.btnNuevoAlumnoClic(evt);
+             ModeloTablaAlumnos modeloT_alumno= (ModeloTablaAlumnos)this.ventana.getTablaAlumnos().getModel();
+             modeloT_alumno.actualizar();
     }//GEN-LAST:event_btnNuevoAlumno
 
     private void btnBorrarProfesor(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarProfesor

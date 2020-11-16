@@ -11,8 +11,12 @@ import java.awt.event.KeyEvent;
 import javax.swing.JComboBox;
 import autores.modelos.GestorAutores;
 import Interfaces.IControladorAMProfesor;
+import Interfaces.IControladorAutores;
 import autores.modelos.Cargo;
+import autores.modelos.ModeloTablaAlumnos;
+import autores.modelos.ModeloTablaProfesores;
 import autores.vistas.ModeloComboCargo;
+import autores.vistas.VentanaAutores;
 
 /**
  *
@@ -21,7 +25,8 @@ import autores.vistas.ModeloComboCargo;
 public class ControladorAMProfesor implements IControladorAMProfesor{
     
     private VentanaAMProfesor ventanaP;
-
+    private VentanaAutores ventana;
+    
     public ControladorAMProfesor() {
         this.ventanaP = new VentanaAMProfesor(this,null,true);
         this.ventanaP.setLocationRelativeTo(null);
@@ -40,6 +45,9 @@ public class ControladorAMProfesor implements IControladorAMProfesor{
         Cargo cargo=((ModeloComboCargo)this.ventanaP.getComboBox_Cargo().getModel()).obtenerCargo();
         GestorAutores gp= GestorAutores.crear();
         gp.nuevoAutor(dni, apellido, nombre, cargo, clave, claveRepetida);
+        ModeloTablaProfesores modeloT_Profesor= (ModeloTablaProfesores)this.ventana.getTablaProfesores().getModel();
+        modeloT_Profesor.actualizar();
+      
     }
 
     @Override

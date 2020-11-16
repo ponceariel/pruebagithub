@@ -2,6 +2,8 @@
 package autores.vistas;
 
 import Interfaces.IControladorAMProfesor;
+import Interfaces.IControladorAutores;
+import autores.controladores.ControladorAMAutores;
 import autores.controladores.ControladorAMProfesor;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
@@ -184,8 +186,9 @@ public class VentanaAMProfesor extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnGuardarProfesor(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarProfesor
-        this.controlProfe.btnGuardarClic(evt);
-        System.out.println("se creo un autor");
+        this.dispose();
+        this.controlProfe.btnGuardarClic(evt); 
+        IControladorAutores ap= new ControladorAMAutores();
     }//GEN-LAST:event_BtnGuardarProfesor
 
     private void BtnCancelarProfesor(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelarProfesor

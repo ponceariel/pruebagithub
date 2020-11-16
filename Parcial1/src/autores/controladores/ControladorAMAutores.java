@@ -32,8 +32,6 @@ public class ControladorAMAutores implements IControladorAutores{
         ventana.getTablaProfesores().setModel(new ModeloTablaAlumnos());
         ventana.getTablaAlumnos().setModel(new ModeloTablaAlumnos());
         ventana.setVisible(true);//se hace visible la ventana
-        ModeloTablaAlumnos mta=(ModeloTablaAlumnos)this.ventana.getTablaAlumnos().getModel();
-        mta.actualizar();
         
     }
 

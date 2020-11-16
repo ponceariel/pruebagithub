@@ -6,12 +6,13 @@
 package autores.modelos;
 
 import java.util.ArrayList;
+import javax.swing.table.AbstractTableModel;
 
 /**
  *
  * @author usuario
  */
-public class ModeloTablaAlumnos {
+public class ModeloTablaAlumnos extends AbstractTableModel{
     
     private ArrayList<String>nombreColumnas=new ArrayList<>();
     private ArrayList<Alumno>nombreFilas=new ArrayList<>();
@@ -54,9 +55,9 @@ public class ModeloTablaAlumnos {
         }
     
     public void actualizar(){
-        GestorAutores ge= GestorAutores.crear();
-        this.nombreFilas=ge.verAlumnos();
-        this.fireTableDataChanged();
+         GestorAutores ge= GestorAutores.crear();
+         this.nombreFilas=ge.verAlumnos();
+         this.fireTableDataChanged();
         
     }
 }

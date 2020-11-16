@@ -6,7 +6,9 @@
 package autores.vistas;
 
 import Interfaces.IControladorAMAlumno;
+import Interfaces.IControladorAutores;
 import autores.controladores.ControladorAMAlumno;
+import autores.controladores.ControladorAMAutores;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -40,8 +42,8 @@ public class VentanaAMAlumno extends javax.swing.JDialog {
         Txt_CX = new javax.swing.JTextField();
         Txt_Clave = new javax.swing.JPasswordField();
         Txt_Clave_Repetida = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnGuardarAlumno = new javax.swing.JButton();
+        btnCancelarAlumno = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -105,11 +107,21 @@ public class VentanaAMAlumno extends javax.swing.JDialog {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButton1.setText("Guardar");
+        btnGuardarAlumno.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnGuardarAlumno.setText("Guardar");
+        btnGuardarAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarAlumnoActionPerformed(evt);
+            }
+        });
 
-        jButton2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButton2.setText("Cancelar");
+        btnCancelarAlumno.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnCancelarAlumno.setText("Cancelar");
+        btnCancelarAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarAlumnoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -135,9 +147,9 @@ public class VentanaAMAlumno extends javax.swing.JDialog {
                 .addGap(56, 56, 56))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnGuardarAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCancelarAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(76, 76, 76))
         );
         layout.setVerticalGroup(
@@ -169,8 +181,8 @@ public class VentanaAMAlumno extends javax.swing.JDialog {
                     .addComponent(Txt_Clave_Repetida, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCancelarAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnGuardarAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(44, 44, 44))
         );
 
@@ -200,6 +212,16 @@ public class VentanaAMAlumno extends javax.swing.JDialog {
     private void Txt_Clave_RepetidaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Txt_Clave_RepetidaKeyTyped
        this.controlA.passRepetirClavePresionarTecla(evt);
     }//GEN-LAST:event_Txt_Clave_RepetidaKeyTyped
+
+    private void btnGuardarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarAlumnoActionPerformed
+        this.dispose();
+        this.controlA.btnGuardarClic(evt);
+        IControladorAutores au= new ControladorAMAutores();
+    }//GEN-LAST:event_btnGuardarAlumnoActionPerformed
+
+    private void btnCancelarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarAlumnoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCancelarAlumnoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -241,8 +263,8 @@ public class VentanaAMAlumno extends javax.swing.JDialog {
     private javax.swing.JPasswordField Txt_Clave_Repetida;
     private javax.swing.JTextField Txt_Documento;
     private javax.swing.JTextField Txt_Nombre;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnCancelarAlumno;
+    private javax.swing.JButton btnGuardarAlumno;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;

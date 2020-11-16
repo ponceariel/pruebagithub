@@ -53,6 +53,12 @@ public class ModeloTablaProfesores extends AbstractTableModel{
     public String getColumnName(int columna) {
          return this.nombreColumnas.get(columna);
         }
+    
+    public void actualizar(){
+      GestorAutores gp= GestorAutores.crear();
+      this.nombreFilas=gp.verProfesores();
+      this.fireTableDataChanged();
     }
+ }
    
 

@@ -45,36 +45,12 @@ public class Alumno extends Autor{
         }
         return true;
     }       
-//    @Override
-//    public int hashCode() {
-//        int hash = 5;
-//        hash = 23 * hash + Objects.hashCode(this.Cx);
-//        return hash;
-//    }
-//
-//    @Override
-//    public boolean equals(Object obj) {
-//        if (this == obj) {
-//            return true;
-//        }
-//        if (obj == null) {
-//            return false;
-//        }
-//        if (getClass().getSuperclass() != obj.getClass().getSuperclass()) {
-//            return false;
-//        }
-//        final Autor other=(Autor)obj;
-//        return false;
-//        }
-//        final Alumno other1 = (Alumno) obj;
-//        if (!Objects.equals(this.Cx, other1.Cx)) {
-//            return false;
-//        }
-//        return true;
-//    }
 
-
-//
+    @Override
+    public String toString() {
+        super.mostrar();
+        return "Alumno{" + "Cx=" + Cx + '}';
+    }
      
 
     public String getCx() {

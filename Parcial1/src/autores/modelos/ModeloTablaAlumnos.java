@@ -56,8 +56,12 @@ public class ModeloTablaAlumnos extends AbstractTableModel{
     
     public void actualizar(){
          GestorAutores ge= GestorAutores.crear();
-         this.nombreFilas=ge.verAlumnos();
+         this.nombreFilas =ge.verAlumnos();
          this.fireTableDataChanged();
         
+    }
+
+    public Alumno verAlumnosSeleccionar(int selectedRow) {
+        return this.nombreFilas.get(selectedRow);
     }
 }

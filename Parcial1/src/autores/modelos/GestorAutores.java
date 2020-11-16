@@ -124,7 +124,12 @@ public class GestorAutores implements IGestorAutores {
         return autordni;
     }
 
-  
+    @Override
+    public String toString() {
+        return "GestorAutores{" + "AUTORES=" + AUTORES + ", PROFESORES=" + PROFESORES + ", ALUMNOS=" + ALUMNOS + '}';
+    }
+
+    
   
     
 }

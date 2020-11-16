@@ -59,6 +59,10 @@ public class ModeloTablaProfesores extends AbstractTableModel{
       this.nombreFilas=gp.verProfesores();
       this.fireTableDataChanged();
     }
+
+    public Profesor verProfesor(int selectedRow) {
+      return this.nombreFilas.get(selectedRow);
+    }
  }
    
 

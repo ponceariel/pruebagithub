@@ -220,7 +220,8 @@ public class VentanaAMAlumno extends javax.swing.JDialog {
     }//GEN-LAST:event_btnGuardarAlumnoActionPerformed
 
     private void btnCancelarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarAlumnoActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
+        this.controlA.btnCancelarClic(evt);
     }//GEN-LAST:event_btnCancelarAlumnoActionPerformed
 
     /**

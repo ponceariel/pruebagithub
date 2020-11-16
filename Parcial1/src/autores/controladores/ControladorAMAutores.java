@@ -11,11 +11,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
 import Interfaces.IControladorAutores;
+import Interfaces.IControladorPrincipal;
 import autores.modelos.GestorAutores;
 import autores.modelos.ModeloTablaAlumnos;
 import autores.modelos.ModeloTablaProfesores;
 import autores.vistas.VentanaAutores;
 import javax.swing.table.TableModel;
+import principal.controladores.ControladorPrincipal;
 
 /**
  *
@@ -74,7 +76,7 @@ public class ControladorAMAutores implements IControladorAutores{
 
     @Override
     public void btnVolverClic(ActionEvent evt) {
-   
+    IControladorPrincipal cp=new ControladorPrincipal();
     }
 
     @Override

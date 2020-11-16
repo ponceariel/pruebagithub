@@ -192,7 +192,8 @@ public class VentanaAMProfesor extends javax.swing.JDialog {
     }//GEN-LAST:event_BtnGuardarProfesor
 
     private void BtnCancelarProfesor(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelarProfesor
-        // TODO add your handling code here:
+        this.dispose();
+        this.controlProfe.btnCancelarClic(evt);
     }//GEN-LAST:event_BtnCancelarProfesor
 
     private void Txt_NombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Txt_NombreKeyTyped

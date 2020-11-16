@@ -95,20 +95,12 @@ public class VentanaAutores extends javax.swing.JDialog {
         tablaProfesores.setForeground(new java.awt.Color(0, 204, 204));
         tablaProfesores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null, null}
             },
             new String [] {
                 "DNI", "Apellidos", "Nombres", "Cargo"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        ));
         jScrollPane1.setViewportView(tablaProfesores);
         tablaProfesores.getAccessibleContext().setAccessibleDescription("");
         tablaProfesores.getAccessibleContext().setAccessibleParent(tablaProfesores);
@@ -335,7 +327,8 @@ public class VentanaAutores extends javax.swing.JDialog {
     }//GEN-LAST:event_btnBuscaAlumnos
 
     private void btnVolver(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolver
-        // TODO add your handling code here:
+        this.dispose();
+        ca.btnVolverClic(evt);
     }//GEN-LAST:event_btnVolver
 
     private void btnBuscarProfesores(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarProfesores

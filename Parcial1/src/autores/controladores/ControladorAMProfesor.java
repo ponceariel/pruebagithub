@@ -52,7 +52,7 @@ public class ControladorAMProfesor implements IControladorAMProfesor{
 
     @Override
     public void btnCancelarClic(ActionEvent evt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       IControladorAutores ca=new ControladorAMAutores();
     }
 
     @Override

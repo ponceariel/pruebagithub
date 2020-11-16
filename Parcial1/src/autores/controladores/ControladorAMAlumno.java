@@ -31,14 +31,13 @@ public class ControladorAMAlumno implements IControladorAMAlumno{
         String claveRepetida=this.ventanaA.getTxt_Repetir_Clave().getText();
         String cx=this.ventanaA.getTxt_CX().getText();
         GestorAutores ga= GestorAutores.crear();
-        ga.nuevoAutor(dni, apellido, nombre, cx, clave, claveRepetida);
-       
+        ga.nuevoAutor(dni,apellido, nombre, cx, clave, claveRepetida);
        
     }
 
     @Override
     public void btnCancelarClic(ActionEvent evt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    IControladorAutores ca=new ControladorAMAutores();
     }
 
     public void txtApellidosPresionarTecla(KeyEvent evt) {

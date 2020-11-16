@@ -85,6 +85,8 @@ public class ControladorAMAutores implements IControladorAutores{
 
     @Override
     public void btnBuscarAlumnoClic(ActionEvent evt) {
+       
+       
 
     }
 
@@ -95,12 +97,16 @@ public class ControladorAMAutores implements IControladorAutores{
 
     @Override
     public void txtApellidosProfesorPresionarTecla(KeyEvent evt) {
-
+     char c= evt.getKeyChar();
+         if(!Character.isAlphabetic(c))
+         evt.consume();        
     }
 
     @Override
     public void txtApellidosAlumnoPresionarTecla(KeyEvent evt) {
- 
+         char c= evt.getKeyChar();
+         if(!Character.isAlphabetic(c))
+         evt.consume();        
     }
     
 }

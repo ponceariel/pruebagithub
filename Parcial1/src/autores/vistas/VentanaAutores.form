@@ -76,27 +76,19 @@
                       <Group type="102" attributes="0">
                           <Component id="jLabel1" min="-2" pref="62" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txtApellidos" min="-2" pref="457" max="-2" attributes="0"/>
+                          <Component id="txtApellidosProfesor" min="-2" pref="457" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="56" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="jButton4" min="-2" pref="75" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="jButton4" min="-2" pref="75" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jButton1" alignment="1" min="-2" pref="75" max="-2" attributes="0"/>
+                          <Component id="jButton2" alignment="1" min="-2" pref="77" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="jButton1" min="-2" pref="75" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jButton2" alignment="1" min="-2" pref="77" max="-2" attributes="0"/>
-                              <Component id="jButton3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="jButton3" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace min="0" pref="47" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -106,7 +98,7 @@
                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel1" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                      <Component id="txtApellidos" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtApellidosProfesor" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -114,13 +106,13 @@
                       <Component id="jScrollPane1" min="-2" pref="89" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Component id="jButton2" min="-2" pref="23" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jButton3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jButton4" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="118" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                  <Component id="jButton4" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="87" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -131,9 +123,9 @@
             <Property name="text" type="java.lang.String" value="Apellidos"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtApellidos">
+        <Component class="javax.swing.JTextField" name="txtApellidosProfesor">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtescribirapellidos"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtApellidosProfesorKeyTyped"/>
           </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -164,11 +156,11 @@
                   <Color blue="cc" green="cc" red="0" type="rgb"/>
                 </Property>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="4" rowCount="4">
-                    <Column editable="true" title="DNI" type="java.lang.Object"/>
-                    <Column editable="true" title="Apellidos" type="java.lang.Object"/>
-                    <Column editable="true" title="Nombres" type="java.lang.Object"/>
-                    <Column editable="true" title="Cargo" type="java.lang.Object"/>
+                  <Table columnCount="4" rowCount="0">
+                    <Column editable="false" title="DNI" type="java.lang.Object"/>
+                    <Column editable="false" title="Apellidos" type="java.lang.Object"/>
+                    <Column editable="false" title="Nombres" type="java.lang.Object"/>
+                    <Column editable="false" title="Cargo" type="java.lang.Object"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -199,6 +191,12 @@
                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                 </Property>
               </Properties>
+              <AccessibilityProperties>
+                <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
+                <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                  <ComponentRef name="tablaProfesores"/>
+                </Property>
+              </AccessibilityProperties>
             </Component>
           </SubComponents>
         </Container>
@@ -275,7 +273,7 @@
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="jLabel2" min="-2" pref="62" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTextField2" min="-2" pref="457" max="-2" attributes="0"/>
+                          <Component id="txtApellidosAlumnos" min="-2" pref="457" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="56" max="32767" attributes="0"/>
@@ -296,7 +294,7 @@
                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel2" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                      <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtApellidosAlumnos" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButton5" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -322,9 +320,9 @@
             <Property name="text" type="java.lang.String" value="Apellidos"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField2">
+        <Component class="javax.swing.JTextField" name="txtApellidosAlumnos">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField2ActionPerformed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtApellidosAlumnosKeyTyped"/>
           </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane2">
@@ -355,11 +353,11 @@
                   <Color blue="cc" green="cc" red="0" type="rgb"/>
                 </Property>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="4" rowCount="4">
-                    <Column editable="true" title="DNI" type="java.lang.Object"/>
-                    <Column editable="true" title="Apellidos" type="java.lang.Object"/>
-                    <Column editable="true" title="Nombres" type="java.lang.Object"/>
-                    <Column editable="true" title="CX" type="java.lang.Object"/>
+                  <Table columnCount="4" rowCount="0">
+                    <Column editable="false" title="DNI" type="java.lang.Object"/>
+                    <Column editable="false" title="Apellidos" type="java.lang.Object"/>
+                    <Column editable="false" title="Nombres" type="java.lang.Object"/>
+                    <Column editable="false" title="CX" type="java.lang.Object"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -390,6 +388,11 @@
                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                 </Property>
               </Properties>
+              <AccessibilityProperties>
+                <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                  <ComponentRef name="tablaAlumnos"/>
+                </Property>
+              </AccessibilityProperties>
             </Component>
           </SubComponents>
         </Container>

@@ -7,6 +7,7 @@ package autores.vistas;
 
 import Interfaces.IControladorAutores;
 import autores.controladores.ControladorAMAutores;
+import autores.modelos.Alumno;
 import autores.modelos.ModeloTablaAlumnos;
 import autores.modelos.ModeloTablaProfesores;
 import javax.swing.JTable;
@@ -55,7 +56,7 @@ public class VentanaAutores extends javax.swing.JDialog {
 
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        txtApellidos = new javax.swing.JTextField();
+        txtApellidosProfesor = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaProfesores = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
@@ -64,7 +65,7 @@ public class VentanaAutores extends javax.swing.JDialog {
         jButton4 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtApellidosAlumnos = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaAlumnos = new javax.swing.JTable();
         jButton5 = new javax.swing.JButton();
@@ -81,9 +82,9 @@ public class VentanaAutores extends javax.swing.JDialog {
 
         jLabel1.setText("Apellidos");
 
-        txtApellidos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtescribirapellidos(evt);
+        txtApellidosProfesor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtApellidosProfesorKeyTyped(evt);
             }
         });
 
@@ -93,16 +94,23 @@ public class VentanaAutores extends javax.swing.JDialog {
         tablaProfesores.setForeground(new java.awt.Color(0, 204, 204));
         tablaProfesores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "DNI", "Apellidos", "Nombres", "Cargo"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tablaProfesores);
+        tablaProfesores.getAccessibleContext().setAccessibleDescription("");
+        tablaProfesores.getAccessibleContext().setAccessibleParent(tablaProfesores);
 
         jButton1.setBackground(new java.awt.Color(0, 204, 204));
         jButton1.setText("Buscar");
@@ -147,20 +155,15 @@ public class VentanaAutores extends javax.swing.JDialog {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                        .addComponent(txtApellidosProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(42, 42, 42)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3))
-                        .addGap(33, 33, 33))))
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton3))
+                .addGap(0, 47, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,18 +171,18 @@ public class VentanaAutores extends javax.swing.JDialog {
                 .addGap(21, 21, 21)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtApellidosProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton4)))
-                .addContainerGap(118, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(12, 12, 12)
+                .addComponent(jButton4)
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED), "Alumnos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.ABOVE_TOP));
@@ -188,9 +191,9 @@ public class VentanaAutores extends javax.swing.JDialog {
 
         jLabel2.setText("Apellidos");
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+        txtApellidosAlumnos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtApellidosAlumnosKeyTyped(evt);
             }
         });
 
@@ -200,16 +203,22 @@ public class VentanaAutores extends javax.swing.JDialog {
         tablaAlumnos.setForeground(new java.awt.Color(0, 204, 204));
         tablaAlumnos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "DNI", "Apellidos", "Nombres", "CX"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane2.setViewportView(tablaAlumnos);
+        tablaAlumnos.getAccessibleContext().setAccessibleParent(tablaAlumnos);
 
         jButton5.setBackground(new java.awt.Color(0, 204, 204));
         jButton5.setText("Buscar");
@@ -257,15 +266,14 @@ public class VentanaAutores extends javax.swing.JDialog {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtApellidosAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jButton6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jButton6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(35, 35, 35))
         );
         jPanel3Layout.setVerticalGroup(
@@ -274,7 +282,7 @@ public class VentanaAutores extends javax.swing.JDialog {
                 .addGap(21, 21, 21)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtApellidosAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton5))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -315,10 +323,6 @@ public class VentanaAutores extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
     private void btnNuevoProfesor(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoProfesor
         this.dispose();
         this.ca.btnNuevoProfesorClic(evt);
@@ -326,7 +330,7 @@ public class VentanaAutores extends javax.swing.JDialog {
     }//GEN-LAST:event_btnNuevoProfesor
 
     private void btnBuscaAlumnos(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaAlumnos
-        // TODO add your handling code here:
+              ca.btnBuscarAlumnoClic(evt);
     }//GEN-LAST:event_btnBuscaAlumnos
 
     private void btnVolver(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolver
@@ -354,9 +358,13 @@ public class VentanaAutores extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBorrarAlumno
 
-    private void txtescribirapellidos(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtescribirapellidos
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtescribirapellidos
+    private void txtApellidosAlumnosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidosAlumnosKeyTyped
+        this.ca.txtApellidosAlumnoPresionarTecla(evt);
+    }//GEN-LAST:event_txtApellidosAlumnosKeyTyped
+
+    private void txtApellidosProfesorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidosProfesorKeyTyped
+    this.ca.txtApellidosProfesorPresionarTecla(evt);
+    }//GEN-LAST:event_txtApellidosProfesorKeyTyped
 
     /**
      * @param args the command line arguments
@@ -381,9 +389,9 @@ public class VentanaAutores extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTable tablaAlumnos;
     private javax.swing.JTable tablaProfesores;
-    private javax.swing.JTextField txtApellidos;
+    private javax.swing.JTextField txtApellidosAlumnos;
+    private javax.swing.JTextField txtApellidosProfesor;
     // End of variables declaration//GEN-END:variables
 }

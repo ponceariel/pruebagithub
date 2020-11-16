@@ -5,23 +5,31 @@
  */
 package principal.controladores;
 
+import Interfaces.IControladorAutores;
 import Interfaces.IControladorPrincipal;
+import autores.controladores.ControladorAMAutores;
 import java.awt.event.ActionEvent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import principal.vistas.VentanaPrincipal;
 
 /**
  *
  * @author usuario
  */
 public class ControladorPrincipal implements IControladorPrincipal {
+    
+    private VentanaPrincipal autor;
 
     public ControladorPrincipal() {
+        this.autor= new VentanaPrincipal(this);
+        this.autor.setLocationRelativeTo(null);
+        this.autor.setVisible(true);
     }
 
     @Override
     public void btnAutoresClic(ActionEvent evt) {
-      
+      IControladorAutores ventana=new ControladorAMAutores();
     }
 
     @Override

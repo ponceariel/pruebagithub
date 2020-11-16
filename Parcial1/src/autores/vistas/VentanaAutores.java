@@ -18,13 +18,12 @@ import javax.swing.table.TableModel;
  */
 public class VentanaAutores extends javax.swing.JDialog {
 
-    /**
-     * Creates new form VentanaAutores
-     */
-    public VentanaAutores(java.awt.Frame parent, boolean modal) {
+    IControladorAutores ca;
+            
+    public VentanaAutores(IControladorAutores control,java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        
+        this.ca=control;
     }
 
     public JTable getTablaAlumnos() {
@@ -321,8 +320,9 @@ public class VentanaAutores extends javax.swing.JDialog {
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void btnNuevoProfesor(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoProfesor
-       IControladorAutores ca=new ControladorAMAutores();
-       ca.btnNuevoProfesorClic(evt);
+        this.dispose();
+        this.ca.btnNuevoProfesorClic(evt);
+       
     }//GEN-LAST:event_btnNuevoProfesor
 
     private void btnBuscaAlumnos(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaAlumnos
@@ -342,8 +342,8 @@ public class VentanaAutores extends javax.swing.JDialog {
     }//GEN-LAST:event_btnModificar
 
     private void btnNuevoAlumno(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoAlumno
-              IControladorAutores ca=new ControladorAMAutores();
-       ca.btnNuevoAlumnoClic(evt);
+             this.dispose();
+             ca.btnNuevoAlumnoClic(evt);
     }//GEN-LAST:event_btnNuevoAlumno
 
     private void btnBorrarProfesor(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarProfesor
@@ -362,42 +362,7 @@ public class VentanaAutores extends javax.swing.JDialog {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaAutores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaAutores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaAutores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaAutores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                VentanaAutores dialog = new VentanaAutores(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
+      
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

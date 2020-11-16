@@ -26,7 +26,7 @@ public class ControladorAMAutores implements IControladorAutores{
     private VentanaAutores ventana;
 
     public ControladorAMAutores() {
-        this.ventana = new VentanaAutores(null,true);
+        this.ventana = new VentanaAutores(this,null,true);
         ventana.setVisible(true);//se hace visible la ventana
         ventana.setLocationRelativeTo(null);
         ventana.getTablaProfesores();

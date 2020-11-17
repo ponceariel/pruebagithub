@@ -41,13 +41,16 @@ public class GestorAutores implements IGestorAutores {
                 this.AUTORES.add(profe);
                 this.PROFESORES.add((Profesor) profe);
                 return Autor_Correcto;
+                
             }
              else{
                  return Autor_Repetido;
             }   
         }else
-             return Autor_Incorrecto;
+    
+            return Autor_Incorrecto;
     }
+    
 
     @Override
     public String nuevoAutor(int dni, String apellidos, String nombres, String cx, String clave, String claveRepetida) {

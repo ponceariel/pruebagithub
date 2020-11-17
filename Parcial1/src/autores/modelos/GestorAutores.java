@@ -19,8 +19,8 @@ public class GestorAutores implements IGestorAutores {
      public static final String Autor_existente="Si existe este autor"; 
     
     private ArrayList<Autor> AUTORES= new ArrayList<>();
-    private ArrayList<Profesor> PROFESORES= new ArrayList<>();
-    private ArrayList<Alumno> ALUMNOS= new ArrayList<>();
+    private final ArrayList<Profesor> PROFESORES= new ArrayList<>();
+    private final ArrayList<Alumno> ALUMNOS= new ArrayList<>();
     private static GestorAutores auxiliar;
        private GestorAutores(){
         //aqui estoy definiendo un constructor predeterminado de gestortipo

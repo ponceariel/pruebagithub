@@ -37,6 +37,11 @@ public class Profesor extends Autor {
     public void asignarCargo(Cargo cargo) {
         this.cargo = cargo;
     }
+
+    @Override
+    public String toString() {
+       return super.toString() + "cargo=" + cargo + '}';
+    }
    
    }
   

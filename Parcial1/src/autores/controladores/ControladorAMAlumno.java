@@ -6,16 +6,20 @@ import java.awt.event.KeyEvent;
 import autores.modelos.GestorAutores;
 import Interfaces.IControladorAMAlumno;
 import Interfaces.IControladorAutores;
+import autores.modelos.Autor;
 import autores.modelos.ModeloTablaAlumnos;
+import autores.modelos.Profesor;
 import autores.vistas.VentanaAMAlumno;
 import autores.vistas.VentanaAutores;
+import java.util.ArrayList;
 
 
 
 public class ControladorAMAlumno implements IControladorAMAlumno{
 
     private VentanaAMAlumno ventanaA;
-    private VentanaAutores ventana;       
+    private VentanaAutores ventana;
+    ArrayList<Autor> nombreFilas=new ArrayList<>();
     public ControladorAMAlumno() { 
         this.ventanaA = new VentanaAMAlumno(this,null,true);
         this.ventanaA.setLocationRelativeTo(null);
@@ -32,6 +36,7 @@ public class ControladorAMAlumno implements IControladorAMAlumno{
         String cx=this.ventanaA.getTxt_CX().getText();
         GestorAutores ga= GestorAutores.crear();
         ga.nuevoAutor(dni,apellido, nombre, cx, clave, claveRepetida);
+       
        
     }
 

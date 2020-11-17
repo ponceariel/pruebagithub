@@ -22,6 +22,7 @@ public abstract class Autor {
     public void mostrar()
     {
       System.out.println("["+""+DNI+"]"+""+apellidos+","+""+nombres);
+      
     }
   
     public int getDNI() {
@@ -54,6 +55,11 @@ public abstract class Autor {
 
     public void setClave(String Clave) {
         this.Clave = Clave;
+    }
+
+    @Override
+    public String toString() {
+        return "Autor{" + "DNI=" + DNI + ", apellidos=" + apellidos + ", nombres=" + nombres + ", Clave=" + Clave + '}';
     }
 
     

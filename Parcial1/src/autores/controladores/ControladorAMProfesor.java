@@ -15,8 +15,10 @@ import Interfaces.IControladorAutores;
 import autores.modelos.Cargo;
 import autores.modelos.ModeloTablaAlumnos;
 import autores.modelos.ModeloTablaProfesores;
+import autores.modelos.Profesor;
 import autores.vistas.ModeloComboCargo;
 import autores.vistas.VentanaAutores;
+import java.util.ArrayList;
 
 /**
  *
@@ -26,6 +28,7 @@ public class ControladorAMProfesor implements IControladorAMProfesor{
     
     private VentanaAMProfesor ventanaP;
     private VentanaAutores ventana;
+    ArrayList<Profesor> gp=new ArrayList<>();
     
     public ControladorAMProfesor() {
         this.ventanaP = new VentanaAMProfesor(this,null,true);
@@ -44,9 +47,10 @@ public class ControladorAMProfesor implements IControladorAMProfesor{
         String claveRepetida=this.ventanaP.getTxt_Repetir_Clave().getText();
         Cargo cargo=((ModeloComboCargo)this.ventanaP.getComboBox_Cargo().getModel()).obtenerCargo();
         GestorAutores gp= GestorAutores.crear();
-        gp.nuevoAutor(dni, apellido, nombre, cargo, clave, claveRepetida);
-//        ModeloTablaProfesores modeloT_Profesor= (ModeloTablaProfesores)this.ventana.getTablaProfesores().getModel();
-//        modeloT_Profesor.actualizar();
+       System.out.println(gp.nuevoAutor(dni, apellido, nombre, cargo, clave, claveRepetida)); 
+       for(Profesor a: this.gp){
+            a.toString();
+        }
       
     }
 

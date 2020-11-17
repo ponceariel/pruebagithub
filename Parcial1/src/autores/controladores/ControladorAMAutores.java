@@ -57,8 +57,8 @@ public class ControladorAMAutores implements IControladorAutores{
     @Override
     public void btnNuevoAlumnoClic(ActionEvent evt) {
        IControladorAMAlumno ca=new ControladorAMAlumno();
-       ModeloTablaProfesores modeloT_Profesor= (ModeloTablaProfesores)this.ventana.getTablaProfesores().getModel();
-       modeloT_Profesor.actualizar(); 
+       ModeloTablaAlumnos modeloT_Alumno= (ModeloTablaAlumnos)this.ventana.getTablaProfesores().getModel();
+       modeloT_Alumno.actualizar(); 
     } 
 
     @Override

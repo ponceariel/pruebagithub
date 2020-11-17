@@ -48,9 +48,10 @@ public class Alumno extends Autor{
 
     @Override
     public String toString() {
-        super.mostrar();
-        return "Alumno{" + "Cx=" + Cx + '}';
+      return  super.toString()  + "Cx=" + Cx + '}';
     }
+
+    
      
 
     public String getCx() {

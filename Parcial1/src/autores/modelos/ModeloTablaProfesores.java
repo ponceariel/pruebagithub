@@ -25,8 +25,11 @@ public class ModeloTablaProfesores extends AbstractTableModel{
         nombreColumnas.add("Cargo");
         
          GestorAutores gp= GestorAutores.crear();
-        this.nombreFilas=gp.verProfesores().;
+        this.nombreFilas=gp.verProfesores();
         
+        for(Profesor a: this.nombreFilas){
+            a.toString();
+        }
     }
 
     @Override

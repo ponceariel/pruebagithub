@@ -208,15 +208,7 @@ public class VentanaAutores extends javax.swing.JDialog {
             new String [] {
                 "DNI", "Apellidos", "Nombres", "CX"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        ));
         jScrollPane2.setViewportView(tablaAlumnos);
         tablaAlumnos.getAccessibleContext().setAccessibleParent(tablaAlumnos);
 

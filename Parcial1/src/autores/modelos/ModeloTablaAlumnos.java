@@ -27,6 +27,9 @@ public class ModeloTablaAlumnos extends AbstractTableModel{
         GestorAutores ge= GestorAutores.crear();
         this.nombreFilas=ge.verAlumnos();
         
+        for(Alumno a: this.nombreFilas){
+            a.toString();
+        }
     }
 
 

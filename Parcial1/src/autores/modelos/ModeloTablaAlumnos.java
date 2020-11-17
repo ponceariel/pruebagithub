@@ -64,4 +64,9 @@ public class ModeloTablaAlumnos extends AbstractTableModel{
     public Alumno verAlumnosSeleccionar(int selectedRow) {
         return this.nombreFilas.get(selectedRow);
     }
+
+    public void setNombreFilas(ArrayList<Alumno> nombreFilas) {
+        this.nombreFilas = nombreFilas;
+    }
+    
 }

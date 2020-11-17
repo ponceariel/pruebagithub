@@ -18,6 +18,7 @@ import autores.modelos.ModeloTablaAlumnos;
 import autores.modelos.ModeloTablaProfesores;
 import autores.modelos.Profesor;
 import autores.vistas.VentanaAutores;
+import java.util.ArrayList;
 import javax.swing.table.TableModel;
 import principal.controladores.ControladorPrincipal;
 
@@ -55,22 +56,24 @@ public class ControladorAMAutores implements IControladorAutores{
 
     @Override
     public void btnNuevoAlumnoClic(ActionEvent evt) {
-    IControladorAMAlumno ca=new ControladorAMAlumno();
-    }
+       IControladorAMAlumno ca=new ControladorAMAlumno();
+       ModeloTablaProfesores modeloT_Profesor= (ModeloTablaProfesores)this.ventana.getTablaProfesores().getModel();
+       modeloT_Profesor.actualizar(); 
+    } 
 
     @Override
     public void btnModificarProfesorClic(ActionEvent evt) {
     ModeloTablaProfesores mtp=(ModeloTablaProfesores)this.ventana.getTablaProfesores().getModel();
     Profesor p= mtp.verProfesor(this.ventana.getTablaProfesores().getSelectedRow());
-    IControladorAMProfesor cpm=new ControladorModificarProfesores();
+    IControladorAMProfesor cpm=new ControladorAMProfesor();
     mtp.actualizar();
     }
 
     @Override
     public void btnModificarAlumnoClic(ActionEvent evt) {
     ModeloTablaAlumnos mtp=(ModeloTablaAlumnos)this.ventana.getTablaAlumnos().getModel();
-    Alumno a= mtp.verAlumnos(this.ventana.getTablaAlumnos().getSelectedRow());
-    IControladorAMAlumno caa=new ControladorModificarAlumnos();
+    Alumno a= mtp.verAlumnosSeleccionar(this.ventana.getTablaAlumnos().getSelectedRow());
+    IControladorAMAlumno caa=new ControladorAMAlumno();
     mtp.actualizar();
     }
 
@@ -92,12 +95,52 @@ public class ControladorAMAutores implements IControladorAutores{
     @Override
     public void btnBuscarProfesorClic(ActionEvent evt) {
        
+        ModeloTablaProfesores mtp= (ModeloTablaProfesores) this.ventana.getTablaProfesores().getModel();
+        mtp.actualizar();
+        String apellido=this.ventana.getTxtApellidosProfesor().getText();
+        ArrayList<Profesor> profesor_buscar= new ArrayList<>();
+        
+        if(apellido.isEmpty()){
+            mtp.actualizar();
+        }else{
+            
+            int filaP=mtp.getRowCount();
+            for(int i=0;i<filaP;i++){
+                
+                Profesor Prof=mtp.verProfesor(filaP);
+                
+                if(Prof.getApellidos().contains(apellido)){
+                    profesor_buscar.add(Prof);
+                }
+            }
+               mtp.setNombreFilas(profesor_buscar);
+               mtp.actualizar();
+        }   
     }
-
     @Override
     public void btnBuscarAlumnoClic(ActionEvent evt) {
        
-       
+       ModeloTablaAlumnos mta= (ModeloTablaAlumnos) this.ventana.getTablaAlumnos().getModel();
+        mta.actualizar();
+        String apellido=this.ventana.getTxtApellidosAlumnos().getText();
+        ArrayList<Alumno> alumno_buscar= new ArrayList<>();
+        
+        if(apellido.isEmpty()){
+            mta.actualizar();
+        }else{
+            
+            int filaAL=mta.getRowCount();
+            for(int i=0;i<filaAL;i++){
+                
+                Alumno alum=mta.verAlumnosSeleccionar(filaAL);
+                
+                if(alum.getApellidos().contains(apellido)){
+                    alumno_buscar.add(alum);
+                }
+            }
+               mta.setNombreFilas(alumno_buscar);
+               mta.actualizar();
+        }
 
     }
 

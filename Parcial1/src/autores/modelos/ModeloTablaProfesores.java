@@ -24,6 +24,9 @@ public class ModeloTablaProfesores extends AbstractTableModel{
         nombreColumnas.add("Nombres");
         nombreColumnas.add("Cargo");
         
+         GestorAutores gp= GestorAutores.crear();
+        this.nombreFilas=gp.verProfesores().;
+        
     }
 
     @Override
@@ -48,6 +51,7 @@ public class ModeloTablaProfesores extends AbstractTableModel{
     }
     
     }
+    
 
     @Override
     public String getColumnName(int columna) {
@@ -63,6 +67,10 @@ public class ModeloTablaProfesores extends AbstractTableModel{
     public Profesor verProfesor(int selectedRow) {
       return this.nombreFilas.get(selectedRow);
     }
+     public void setNombreFilas(ArrayList<Profesor> nombreFilas) {
+        this.nombreFilas = nombreFilas;
+    }         
+
  }
    
 

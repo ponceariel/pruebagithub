@@ -88,7 +88,7 @@ public class ControladorAMAutores implements IControladorAutores{
 
     @Override
     public void btnVolverClic(ActionEvent evt) {
-    IControladorPrincipal cp=new ControladorPrincipal();
+    IControladorPrincipal cprincipal=new ControladorPrincipal();
     }
 
     @Override

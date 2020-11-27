@@ -27,9 +27,6 @@ public class ModeloTablaProfesores extends AbstractTableModel{
          GestorAutores gp= GestorAutores.crear();
         this.nombreFilas=gp.verProfesores();
         
-        for(Profesor a: this.nombreFilas){
-            a.toString();
-        }
     }
 
     @Override

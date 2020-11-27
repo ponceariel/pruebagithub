@@ -37,10 +37,6 @@ public class ControladorAMAutores implements IControladorAutores{
         ventana.getTablaProfesores().setModel(new ModeloTablaProfesores());
         ventana.getTablaAlumnos().setModel(new ModeloTablaAlumnos());
         ventana.setVisible(true);//se hace visible la ventana
-        ModeloTablaProfesores modeloT_Profesor= (ModeloTablaProfesores)this.ventana.getTablaProfesores().getModel();
-        modeloT_Profesor.actualizar(); 
-        ModeloTablaAlumnos modeloT_alumno= (ModeloTablaAlumnos)this.ventana.getTablaProfesores().getModel();
-        modeloT_alumno.actualizar();
     }
 
 
@@ -110,15 +106,17 @@ public class ControladorAMAutores implements IControladorAutores{
             int filaP=mtp.getRowCount();
             for(int i=0;i<filaP;i++){
                 
-                Profesor Prof=mtp.verProfesor(filaP);
+                Profesor Prof=mtp.verProfesor(i);
                 
                 if(Prof.getApellidos().contains(apellido)){
                     profesor_buscar.add(Prof);
                 }
             }
                mtp.setNombreFilas(profesor_buscar);
-               mtp.actualizar();
-        }   
+               mtp.fireTableDataChanged();  
+               
+        } 
+        
     }
     @Override
     public void btnBuscarAlumnoClic(ActionEvent evt) {
@@ -135,16 +133,16 @@ public class ControladorAMAutores implements IControladorAutores{
             int filaAL=mta.getRowCount();
             for(int i=0;i<filaAL;i++){
                 
-                Alumno alum=mta.verAlumnosSeleccionar(filaAL);
+                Alumno alum=mta.verAlumnosSeleccionar(i);
                 
                 if(alum.getApellidos().contains(apellido)){
                     alumno_buscar.add(alum);
                 }
             }
                mta.setNombreFilas(alumno_buscar);
-               mta.actualizar();
+               mta.fireTableDataChanged();
+             
         }
-
     }
 
     @Override

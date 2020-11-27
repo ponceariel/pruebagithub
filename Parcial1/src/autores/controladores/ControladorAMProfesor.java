@@ -54,7 +54,7 @@ public class ControladorAMProfesor implements IControladorAMProfesor{
 
     @Override
     public void btnCancelarClic(ActionEvent evt) {
-       IControladorAutores ca=new ControladorAMAutores();
+       IControladorAutores cp=new ControladorAMAutores();
     }
 
     @Override

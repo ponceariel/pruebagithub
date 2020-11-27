@@ -327,8 +327,7 @@ public class VentanaAutores extends javax.swing.JDialog {
     }//GEN-LAST:event_btnNuevoProfesor
 
     private void btnBuscaAlumnos(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaAlumnos
-        this.dispose();
-        this.ca.btnBuscarAlumnoClic(evt);
+          this.ca.btnBuscarAlumnoClic(evt);
     }//GEN-LAST:event_btnBuscaAlumnos
 
     private void btnVolver(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolver
@@ -337,8 +336,7 @@ public class VentanaAutores extends javax.swing.JDialog {
     }//GEN-LAST:event_btnVolver
 
     private void btnBuscarProfesores(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarProfesores
-       this.dispose();
-       ca.btnBuscarProfesorClic(evt);
+       this.ca.btnBuscarProfesorClic(evt);
     }//GEN-LAST:event_btnBuscarProfesores
 
     private void btnModificarProfesorClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarProfesorClic

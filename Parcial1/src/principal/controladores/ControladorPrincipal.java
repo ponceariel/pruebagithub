@@ -29,7 +29,7 @@ public class ControladorPrincipal implements IControladorPrincipal {
 
     @Override
     public void btnAutoresClic(ActionEvent evt) {
-      IControladorAutores ventana=new ControladorAMAutores();
+      ControladorAMAutores ventana=new ControladorAMAutores();
     }
 
     @Override

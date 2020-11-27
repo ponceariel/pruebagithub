@@ -54,7 +54,7 @@ public class GestorAutores implements IGestorAutores {
 
     @Override
     public String nuevoAutor(int dni, String apellidos, String nombres, String cx, String clave, String claveRepetida) {
-      if(((dni!=0)&&(apellidos!=null)&&(!apellidos.isBlank())&&(nombres!=null)&&(!nombres.isBlank())&&(clave!=null)&&(!clave.isBlank())&&(cx!=null)&&(claveRepetida!=null)&&(!claveRepetida.isBlank()))&&(clave==claveRepetida)){
+      if(((dni!=0)&&(apellidos!=null)&&(!apellidos.isBlank())&&(nombres!=null)&&(!nombres.isBlank())&&(clave!=null)&&(!clave.isBlank())&&(cx!=null)&&(claveRepetida!=null)&&(!claveRepetida.isBlank()))&&(clave!=claveRepetida)){
            Autor alumno=new Alumno(dni,apellidos,nombres,cx,clave);
           if (!this.AUTORES.contains(alumno)){
               this.AUTORES.add(alumno);

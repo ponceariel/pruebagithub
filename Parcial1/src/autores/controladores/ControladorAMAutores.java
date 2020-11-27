@@ -34,10 +34,13 @@ public class ControladorAMAutores implements IControladorAutores{
 
         this.ventana = new VentanaAutores(this,null,true);
         ventana.setLocationRelativeTo(null);
-        ventana.getTablaProfesores().setModel(new ModeloTablaAlumnos());
+        ventana.getTablaProfesores().setModel(new ModeloTablaProfesores());
         ventana.getTablaAlumnos().setModel(new ModeloTablaAlumnos());
         ventana.setVisible(true);//se hace visible la ventana
-        
+        ModeloTablaProfesores modeloT_Profesor= (ModeloTablaProfesores)this.ventana.getTablaProfesores().getModel();
+        modeloT_Profesor.actualizar(); 
+        ModeloTablaAlumnos modeloT_alumno= (ModeloTablaAlumnos)this.ventana.getTablaProfesores().getModel();
+        modeloT_alumno.actualizar();
     }
 
 

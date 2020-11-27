@@ -48,11 +48,7 @@ public class ControladorAMProfesor implements IControladorAMProfesor{
         Cargo cargo=((ModeloComboCargo)this.ventanaP.getComboBox_Cargo().getModel()).obtenerCargo();
         GestorAutores gp= GestorAutores.crear();
        System.out.println(gp.nuevoAutor(dni, apellido, nombre, cargo, clave, claveRepetida));
-               System.out.println("!!DISCULPEN, NO LOGRAMOS ENCONTRAR EL ERROR PARA HACER QUE LOS AUTORES SE MUESTREN EN LA TABLA, SI PUDERAN DECIRNOS DONDE ESTAN EL ERROR POR FAVOR");
-
-       for(Profesor a: this.gp){
-            a.toString();
-        }
+          
       
     }
 

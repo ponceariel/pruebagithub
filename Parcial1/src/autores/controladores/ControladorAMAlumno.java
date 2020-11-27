@@ -35,7 +35,7 @@ public class ControladorAMAlumno implements IControladorAMAlumno{
         String claveRepetida=this.ventanaA.getTxt_Repetir_Clave().getText();
         String cx=this.ventanaA.getTxt_CX().getText();
         GestorAutores ga= GestorAutores.crear();
-        ga.nuevoAutor(dni,apellido, nombre, cx, clave, claveRepetida);
+        System.out.println(ga.nuevoAutor(dni,apellido, nombre, cx, clave, claveRepetida));
        
        
     }

@@ -6,6 +6,7 @@ import Interfaces.IControladorAutores;
 import autores.controladores.ControladorAMAutores;
 import autores.controladores.ControladorAMProfesor;
 import javax.swing.JComboBox;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 
@@ -245,6 +246,22 @@ public class VentanaAMProfesor extends javax.swing.JDialog {
 
     public JTextField getTxt_Repetir_Clave() {
         return Txt_Repetir_Clave;
+    }
+    public void dniEnabled(boolean enabled){
+        this.Txt_Documento.setEnabled(enabled);
+    }
+
+       
+    public void setDni(String dni){
+        this.Txt_Documento.setText(dni);
+    }
+    
+    public void setApellidos(String apellidos){
+        this.Txt_Apellido.setText(apellidos);
+    }
+    
+    public void setNombres(String nombres){
+        this.Txt_Nombre.setText(nombres);
     }
     
 

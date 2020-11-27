@@ -62,10 +62,13 @@ public class ControladorAMAutores implements IControladorAutores{
 
     @Override
     public void btnModificarProfesorClic(ActionEvent evt) {
-    ModeloTablaProfesores mtp=(ModeloTablaProfesores)this.ventana.getTablaProfesores().getModel();
-    Profesor p= mtp.verProfesor(this.ventana.getTablaProfesores().getSelectedRow());
-    IControladorAMProfesor cpm=new ControladorAMProfesor();
-    mtp.actualizar();
+//    ModeloTablaProfesores mtp=(ModeloTablaProfesores)this.ventana.getTablaProfesores().getModel();
+//    Profesor p= mtp.verProfesor(this.ventana.getTablaProfesores().getSelectedRow());
+//    IControladorAMProfesor cpm=new ControladorAMProfesor();
+//    mtp.actualizar();
+     ControladorAMProfesor controlador = new ControladorAMProfesor("Modificar Profesor", false, false, this.ventana.verProfesor());
+        this.ventana.setVisible(false);
+        this.ventana.dispose();
     }
 
     @Override

@@ -8,6 +8,7 @@ package autores.vistas;
 import Interfaces.IControladorAutores;
 import autores.controladores.ControladorAMAutores;
 import autores.modelos.Alumno;
+import autores.modelos.Autor;
 import autores.modelos.ModeloTablaAlumnos;
 import autores.modelos.ModeloTablaProfesores;
 import javax.swing.JTable;
@@ -128,7 +129,7 @@ public class VentanaAutores extends javax.swing.JDialog {
         btnModificarProfesores.setText("Modificar");
         btnModificarProfesores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificarProfesorClic(evt);
+                btnModificarProfesores(evt);
             }
         });
 
@@ -339,9 +340,6 @@ public class VentanaAutores extends javax.swing.JDialog {
        this.ca.btnBuscarProfesorClic(evt);
     }//GEN-LAST:event_btnBuscarProfesores
 
-    private void btnModificarProfesorClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarProfesorClic
-    }//GEN-LAST:event_btnModificarProfesorClic
-
     private void btnNuevoAlumno(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoAlumno
              this.dispose();
              this.ca.btnNuevoAlumnoClic(evt);
@@ -367,11 +365,19 @@ public class VentanaAutores extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnModificarAlumnoClic
 
+    private void btnModificarProfesores(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarProfesores
+      this.ca.btnModificarProfesorClic(evt);
+    }//GEN-LAST:event_btnModificarProfesores
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
       
+    }
+    public Autor verProfesor() {
+       ModeloTablaProfesores mtp = (ModeloTablaProfesores)this.tablaProfesores.getModel();
+       return mtp.verProfesor(this.tablaProfesores.getSelectedRow());
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -12,6 +12,7 @@ import javax.swing.JComboBox;
 import autores.modelos.GestorAutores;
 import Interfaces.IControladorAMProfesor;
 import Interfaces.IControladorAutores;
+import autores.modelos.Autor;
 import autores.modelos.Cargo;
 import autores.modelos.ModeloTablaAlumnos;
 import autores.modelos.ModeloTablaProfesores;
@@ -28,6 +29,8 @@ public class ControladorAMProfesor implements IControladorAMProfesor{
     
     private VentanaAMProfesor ventanaP;
     private VentanaAutores ventana;
+     private boolean crear;
+    private Autor autorAux;
     ArrayList<Profesor> gp=new ArrayList<>();
     
     public ControladorAMProfesor() {
@@ -36,6 +39,18 @@ public class ControladorAMProfesor implements IControladorAMProfesor{
         JComboBox comboCargo = new JComboBox();
         comboCargo.setModel(new ModeloComboCargo());
         this.ventanaP.getComboBox_Cargo().setModel(new ModeloComboCargo());
+        this.ventanaP.setVisible(true);
+    }
+    public ControladorAMProfesor(String title, boolean dniEnabled, boolean crear, Autor autor){
+        this.crear = crear;
+        this.ventanaP = new VentanaAMProfesor(this,null,true);
+        this.ventanaP.setTitle(title);
+        this.ventanaP.dniEnabled(dniEnabled);
+        this.ventanaP.setDni(String.valueOf(autor.getDNI()));
+        this.ventanaP.setApellidos(autor.getApellidos());
+        this.ventanaP.setNombres(autor.getNombres());
+        this.autorAux = autor;
+        this.ventanaP.setLocationRelativeTo(null);
         this.ventanaP.setVisible(true);
     }
     @Override

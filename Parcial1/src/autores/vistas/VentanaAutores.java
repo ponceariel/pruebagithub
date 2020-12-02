@@ -24,12 +24,15 @@ public class VentanaAutores extends javax.swing.JDialog {
     ControladorAMAutores ca;
     private VentanaAutores ventana;
     private ModeloTablaAlumnos modeloT_alumno;
+   
             
     public VentanaAutores(ControladorAMAutores control,java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         this.ca=control;
     }
+
+  
 
     public JTable getTablaAlumnos() {
         return tablaAlumnos;
@@ -54,6 +57,10 @@ public class VentanaAutores extends javax.swing.JDialog {
     public JTextField getTxtApellidosProfesor() {
         return txtApellidosProfesor;
     }
+
+   
+
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -322,6 +329,7 @@ public class VentanaAutores extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNuevoProfesor(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoProfesor
+       
         this.dispose();
         this.ca.btnNuevoProfesorClic(evt);
        
@@ -341,16 +349,18 @@ public class VentanaAutores extends javax.swing.JDialog {
     }//GEN-LAST:event_btnBuscarProfesores
 
     private void btnNuevoAlumno(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoAlumno
+            
              this.dispose();
              this.ca.btnNuevoAlumnoClic(evt);
+              
     }//GEN-LAST:event_btnNuevoAlumno
 
     private void btnBorrarProfesor(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarProfesor
-        // TODO add your handling code here:
+        this.ca.btnBorrarProfesorClic(evt);
     }//GEN-LAST:event_btnBorrarProfesor
 
     private void btnBorrarAlumno(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarAlumno
-        // TODO add your handling code here:
+         this.ca.btnBorrarAlumnoClic(evt);
     }//GEN-LAST:event_btnBorrarAlumno
 
     private void txtApellidosAlumnosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidosAlumnosKeyTyped
@@ -362,11 +372,13 @@ public class VentanaAutores extends javax.swing.JDialog {
     }//GEN-LAST:event_txtApellidosProfesorKeyTyped
 
     private void btnModificarAlumnoClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarAlumnoClic
-        // TODO add your handling code here:
+        this.ca.btnModificarAlumnoClic(evt);
     }//GEN-LAST:event_btnModificarAlumnoClic
 
     private void btnModificarProfesores(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarProfesores
-      this.ca.btnModificarProfesorClic(evt);
+        
+        this.ca.btnModificarProfesorClic(evt);
+      
     }//GEN-LAST:event_btnModificarProfesores
 
     /**

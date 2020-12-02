@@ -4,10 +4,8 @@
  * and open the template in the editor.
  */
 package autores.modelos;
-
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
-
 /**
  *
  * @author usuario
@@ -17,7 +15,6 @@ public class ModeloTablaAlumnos extends AbstractTableModel{
     private ArrayList<String>nombreColumnas=new ArrayList<>();
     private ArrayList<Alumno>nombreFilas=new ArrayList<>();
     
-
     public ModeloTablaAlumnos() {
         nombreColumnas.add("DNI");
         nombreColumnas.add("Apellidos");
@@ -26,7 +23,10 @@ public class ModeloTablaAlumnos extends AbstractTableModel{
         
         GestorAutores ge= GestorAutores.crear();
         this.nombreFilas=ge.verAlumnos();
-        
+
+        for(Alumno a: this.nombreFilas){
+            a.toString();
+        }
 //        for(Alumno a: this.nombreFilas){
 //            a.toString();
 //        }
@@ -36,11 +36,9 @@ public class ModeloTablaAlumnos extends AbstractTableModel{
     public int getRowCount() {
        return this.nombreFilas.size();
     }
-
     public int getColumnCount() {
      return this.nombreColumnas.size();
     }
-
     public Object getValueAt(int fila, int columna) {
     Alumno alumno= this.nombreFilas.get(fila);
     switch(columna){
@@ -52,7 +50,6 @@ public class ModeloTablaAlumnos extends AbstractTableModel{
     }
     
     }
-
     public String getColumnName(int columna) {
          return this.nombreColumnas.get(columna);
         }
@@ -63,11 +60,9 @@ public class ModeloTablaAlumnos extends AbstractTableModel{
          this.fireTableDataChanged();
         
     }
-
     public Alumno verAlumnosSeleccionar(int selectedRow) {
         return this.nombreFilas.get(selectedRow);
     }
-
     public void setNombreFilas(ArrayList<Alumno> nombreFilas) {
         this.nombreFilas = nombreFilas;
     }

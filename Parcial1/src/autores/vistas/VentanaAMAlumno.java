@@ -255,6 +255,26 @@ public class VentanaAMAlumno extends javax.swing.JDialog {
     public JTextField getTxt_Nombre() {
         return Txt_Nombre;
     }
+     public void dniEnabled(boolean enabled){
+        this.Txt_Documento.setEnabled(enabled);
+    }
+
+    public void setDni(String dni){
+        this.Txt_Documento.setText(dni);
+    }
+    public void setNombres(String nombres){
+        this.Txt_Nombre.setText(nombres);
+    }
+    
+    public void setApellidos(String apellidos){
+        this.Txt_Apellido.setText(apellidos);
+    }
+
+    
+
+    public void dniEnabledA(boolean enabled){
+        this.Txt_Documento.setEnabled(enabled);
+    }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

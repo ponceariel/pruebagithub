@@ -12,13 +12,17 @@ import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
 import Interfaces.IControladorAutores;
 import Interfaces.IControladorPrincipal;
+import Interfaces.IGestorAutores;
 import autores.modelos.Alumno;
+import autores.modelos.Cargo;
 import autores.modelos.GestorAutores;
 import autores.modelos.ModeloTablaAlumnos;
 import autores.modelos.ModeloTablaProfesores;
 import autores.modelos.Profesor;
+import autores.vistas.ModeloComboCargo;
 import autores.vistas.VentanaAutores;
 import java.util.ArrayList;
+import javax.swing.JComboBox;
 import javax.swing.table.TableModel;
 import principal.controladores.ControladorPrincipal;
 
@@ -29,6 +33,8 @@ import principal.controladores.ControladorPrincipal;
 public class ControladorAMAutores implements IControladorAutores{
     
     private VentanaAutores ventana;
+//    private int bandera=1;
+
 
     public ControladorAMAutores() {
 
@@ -43,13 +49,19 @@ public class ControladorAMAutores implements IControladorAutores{
     public void setVentana(VentanaAutores ventana) {
         this.ventana = ventana;
     }
+
+//    public int getBandera() {
+//        return bandera;
+//    }
     
 
     @Override
     public void btnNuevoProfesorClic(ActionEvent evt) { 
+      
       IControladorAMProfesor cp =new ControladorAMProfesor();
       ModeloTablaProfesores modeloT_Profesor= (ModeloTablaProfesores)this.ventana.getTablaProfesores().getModel();
       modeloT_Profesor.actualizar(); 
+      
       
     }
 
@@ -62,35 +74,45 @@ public class ControladorAMAutores implements IControladorAutores{
 
     @Override
     public void btnModificarProfesorClic(ActionEvent evt) {
-//    ModeloTablaProfesores mtp=(ModeloTablaProfesores)this.ventana.getTablaProfesores().getModel();
-//    Profesor p= mtp.verProfesor(this.ventana.getTablaProfesores().getSelectedRow());
-//    IControladorAMProfesor cpm=new ControladorAMProfesor();
-//    mtp.actualizar();
-     ControladorAMProfesor controlador = new ControladorAMProfesor("Modificar Profesor", false, false, this.ventana.verProfesor());
-        this.ventana.setVisible(false);
-        this.ventana.dispose();
+ 
+    ModeloTablaProfesores mtp=(ModeloTablaProfesores)this.ventana.getTablaProfesores().getModel();
+    Profesor p= mtp.verProfesor(this.ventana.getTablaProfesores().getSelectedRow());
+     IControladorAMProfesor controlador = new ControladorAMProfesor("Modificar Profesor", false, false, p);
+     this.ventana.setVisible(false);
+     this.ventana.dispose();
     }
 
     @Override
     public void btnModificarAlumnoClic(ActionEvent evt) {
     ModeloTablaAlumnos mtp=(ModeloTablaAlumnos)this.ventana.getTablaAlumnos().getModel();
     Alumno a= mtp.verAlumnosSeleccionar(this.ventana.getTablaAlumnos().getSelectedRow());
-    IControladorAMAlumno caa=new ControladorAMAlumno();
+    IControladorAMAlumno caa=new ControladorAMAlumno("Modificar Alumno",false,false,a);
     mtp.actualizar();
     }
 
     @Override
     public void btnBorrarProfesorClic(ActionEvent evt) {
+    ModeloTablaProfesores mtp=(ModeloTablaProfesores)this.ventana.getTablaProfesores().getModel();
+    Profesor p= mtp.verProfesor(this.ventana.getTablaProfesores().getSelectedRow());
+    GestorAutores gp= GestorAutores.crear();
+    gp.verProfesores().remove(p);
+    mtp.actualizar();
    
     }
 
     @Override
     public void btnBorrarAlumnoClic(ActionEvent evt) {
-
+    ModeloTablaAlumnos mtp=(ModeloTablaAlumnos)this.ventana.getTablaAlumnos().getModel();
+    Alumno a= mtp.verAlumnosSeleccionar(this.ventana.getTablaAlumnos().getSelectedRow());
+    GestorAutores gp= GestorAutores.crear();
+    gp.verAlumnos().remove(a);
+    mtp.actualizar();
+      
     }
 
     @Override
     public void btnVolverClic(ActionEvent evt) {
+    this.ventana.dispose();    
     IControladorPrincipal Cprincipal=new ControladorPrincipal();
     }
 
@@ -166,5 +188,8 @@ public class ControladorAMAutores implements IControladorAutores{
          if(!Character.isAlphabetic(c))
          evt.consume();        
     }
+
+    
+    
     
 }

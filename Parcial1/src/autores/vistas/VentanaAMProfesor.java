@@ -84,6 +84,11 @@ public class VentanaAMProfesor extends javax.swing.JDialog {
 
         ComboBox_Cargo.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         ComboBox_Cargo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ComboBox_Cargo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Combobox(evt);
+            }
+        });
 
         BtnGuardar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         BtnGuardar.setText("Guardar");
@@ -216,6 +221,10 @@ public class VentanaAMProfesor extends javax.swing.JDialog {
     private void Txt_Repetir_ClaveKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Txt_Repetir_ClaveKeyTyped
           this.controlProfe.passRepetirClavePresionarTecla(evt);
     }//GEN-LAST:event_Txt_Repetir_ClaveKeyTyped
+
+    private void Combobox(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Combobox
+           
+    }//GEN-LAST:event_Combobox
 
     /**
      * @param args the command line arguments

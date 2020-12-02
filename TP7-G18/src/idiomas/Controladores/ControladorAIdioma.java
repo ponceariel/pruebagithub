@@ -6,6 +6,7 @@
 package idiomas.Controladores;
 
 import Interfaces.IControladorAIdioma;
+import java.awt.event.ActionEvent;
 
 /**
  *
@@ -13,14 +14,16 @@ import Interfaces.IControladorAIdioma;
  */
 public class ControladorAIdioma implements IControladorAIdioma {
 
+   
+
     @Override
-    public void btnGuardarClic(Object evt) {
-      
+    public void btnGuardarClic(ActionEvent evt) {
+        
     }
 
     @Override
-    public void btnCancelarClic(Object evt) {
-        
+    public void btnCancelarClic(ActionEvent evt) {
+       
     }
     
 }
